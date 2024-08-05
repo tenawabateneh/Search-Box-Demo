@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Search Box Demo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./search/bootstrap3.4.1css/bootstrap.min.css">
+  <script src="./search/jquery3.5.1/jquery.min.js"></script>
+  <script src="./search/bootstrap3.4.1js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <h2>Filterable Table</h2>
+    <p>Type something in the input field to search the table for first names, last names or emails:</p>
+    <input class="form-control" id="myInput" type="text" placeholder="Search..">
+    <br>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody id="myTable">
+        <tr>
+          <td>Tenaw</td>
+          <td>Abateneh</td>
+          <td>tenaw@gmail.com</td>
+        </tr>
+        <tr>
+          <td>Ruel</td>
+          <td>Assefa</td>
+          <td>ruel@gmail.com</td>
+        </tr>
+        <tr>
+          <td>Habtamu</td>
+          <td>Firew</td>
+          <td>habtish@gmail.com</td>
+        </tr>
+        <tr>
+          <td>Beyene</td>
+          <td>Temessgen</td>
+          <td>beyene@example.com</td>
+        </tr>
+        <tr>
+          <td>Assefa</td>
+          <td>Biste</td>
+          <td>assefa@mail.com</td>
+        </tr>
+        <tr>
+          <td>Himanot</td>
+          <td>Alemu</td>
+          <td>himanot@yahoo.com</td>
+        </tr>
+        <tr>
+          <td>Debebe</td>
+          <td>Assefa</td>
+          <td>israle@gmail.com</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $("#myInput").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function () {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+  </script>
+
+</body>
+
+</html>
